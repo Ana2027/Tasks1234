@@ -15,9 +15,9 @@ def way(cx, cy, rad, points):
 
 def is_in_circle(circle_file, dot_file):
     with open(circle_file, 'r', encoding='utf-8') as file_1, open(dot_file, 'r', encoding='utf-8') as file_2:
-        circle = list(map(lambda it: it.split() if len(it) > 1 else it, file_1.readlines()))
+        circle = list(map(lambda it: it.split(), file_1.readlines()))
         center_x, center_y = float(circle[0][0]), float(circle[0][1])
-        radius = float(circle[1])
+        radius = float(circle[1][0])
         points = list(map(lambda it: it.split(), file_2.readlines()))
         if not 1 <= len(points) <= 100:
             raise ValueError('Points quantity must be in [1, 100]')
